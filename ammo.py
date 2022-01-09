@@ -1,20 +1,22 @@
 import pygame
 
 
+# Класс для снарядов игрока
 class Ammo(pygame.sprite.Sprite):
+
     def __init__(self, screen, main):
         super(Ammo, self).__init__()
         self.screen = screen
-        self.y = float(self.rect.y)
-        self.speed = 5
+        self.rect = pygame.Rect(0, 0, 2, 12)
+        self.color = 139, 195, 74
+        self.speed = 4.5
         self.rect.centerx = main.rect.centerx
         self.rect.top = main.rect.top
-        self.rect = pygame.Rect(0, 0, 3, 15)
-        self.color = 255, 86, 34
+        self.y = float(self.rect.y)
 
     def update(self):
         self.y -= self.speed
         self.rect.y = self.y
 
-    def draw(self):
+    def draw_bullet(self):
         pygame.draw.rect(self.screen, self.color, self.rect)

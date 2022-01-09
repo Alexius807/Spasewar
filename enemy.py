@@ -1,6 +1,7 @@
 import pygame
 
 
+# класс врага
 class Enemy(pygame.sprite.Sprite):
 
     def __init__(self, screen):
@@ -13,9 +14,10 @@ class Enemy(pygame.sprite.Sprite):
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
 
-    def draw_enemy(self):
+    def draw(self):
         self.screen.blit(self.image, self.rect)
 
+    # постепенно двигаются вперед
     def update(self):
         self.y += 0.1
         self.rect.y = self.y
