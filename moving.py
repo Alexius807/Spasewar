@@ -15,8 +15,8 @@ def events(screen, main, ammos):
             elif event.key == pygame.K_a:
                 main.mleft = True
             elif event.key == pygame.K_SPACE:
-                new_bullet = Ammo(screen, main)
-                ammos.add(new_bullet)
+                new_ammo = Ammo(screen, main)
+                ammos.add(new_ammo)
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_d:
                 main.mright = False
@@ -27,8 +27,8 @@ def events(screen, main, ammos):
 def update(bg_color, screen, stats, sc, main, enemies, ammos):
     screen.fill(bg_color)
     sc.show_score()
-    for bullet in ammos.sprites():
-        bullet.draw_bullet()
+    for ammo in ammos.sprites():
+        ammo.draw_ammo()
     main.draw_main()
     enemies.draw(screen)
     pygame.display.flip()
@@ -55,9 +55,9 @@ def start_attack(screen, enemies):
 # обновление снарядов
 def update_ammos(screen, stats, sc, enemies, ammos):
     ammos.update()
-    for bullet in ammos.copy():
-        if bullet.rect.bottom <= 0:
-            ammos.remove(bullet)
+    for ammo in ammos.copy():
+        if ammo.rect.bottom <= 0:
+            ammos.remove(ammo)
     collisions = pygame.sprite.groupcollide(ammos, enemies, True, True)
     if collisions:
         for enemies in collisions.values():
@@ -104,7 +104,7 @@ def main_loose(stats, screen, sc, main, enemies, ammos):
         enemies.empty()
         ammos.empty()
         start_attack(screen, enemies)
-        main.create_gun()
+        main.ressurect_main()
         time.sleep(1)
     else:
         stats.run_game = False

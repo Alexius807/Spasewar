@@ -17,7 +17,7 @@ class Main(Sprite):
         self.mleft = False
 
     # Расположение по центру экрана
-    def create_gun(self):
+    def ressurect_main(self):
         self.center = self.screen_rect.centerx
 
     # Отрисовка игрока
@@ -25,7 +25,7 @@ class Main(Sprite):
         self.screen.blit(self.image, self.rect)
 
     # Обработка движения
-    def update_gun(self):
+    def update_main(self):
         if self.mright and self.rect.right < self.screen_rect.right:
             self.center += 1.5
         if self.mleft and self.rect.left > 0:

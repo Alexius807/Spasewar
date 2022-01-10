@@ -18,5 +18,5 @@ class Ammo(pygame.sprite.Sprite):
         self.y -= self.speed
         self.rect.y = self.y
 
-    def draw_bullet(self):
+    def draw_ammo(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
