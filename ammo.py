@@ -7,9 +7,9 @@ class Ammo(pygame.sprite.Sprite):
     def __init__(self, screen, main):
         super(Ammo, self).__init__()
         self.screen = screen
-        self.rect = pygame.Rect(0, 0, 2, 12)
+        self.rect = pygame.Rect(0, 0, 4, 12)
         self.color = 139, 195, 74
-        self.speed = 4.5
+        self.speed = 5
         self.rect.centerx = main.rect.centerx
         self.rect.top = main.rect.top
         self.y = float(self.rect.y)

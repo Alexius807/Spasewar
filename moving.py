@@ -42,7 +42,7 @@ def start_attack(screen, enemies):
     en_height = enemy.rect.height
     number_en_y = int((800 - 100 - 2 * en_height) / en_height)
 
-    for row_number in range(number_en_y - 1):
+    for row_number in range(number_en_y - 3):
         for en_number in range(number_en_x):
             en = Enemy(screen)
             en.x = en_width + (en_width * en_number)

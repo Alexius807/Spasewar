@@ -24,8 +24,8 @@ size = width, height = 700, 800
 # def terminate():
 #     pygame.quit()
 #     sys.exit()
-#
-#
+# #
+# #
 # def start_screen():
 #     screen = pygame.display.set_mode(size)
 #     intro_text = ["ЗАСТАВКА", "",
@@ -35,10 +35,11 @@ size = width, height = 700, 800
 #
 #     fon = pygame.transform.scale(load_image('fon.jpg'), (width, height))
 #     screen.blit(fon, (0, 0))
-#     font = pygame.font.Font(None, 30)
+#     font = pygame.font.SysFont('arial', 30)
 #     text_coord = 50
+#     text_color = (139, 195, 74)
 #     for line in intro_text:
-#         string_rendered = font.render(str(line), True, pygame.Color('white'), (0, 0, 0))
+#         string_rendered = font.render(str(line), True, text_color, (0, 0, 0))
 #         intro_rect = string_rendered.get_rect()
 #         text_coord += 10
 #         intro_rect.top = text_coord
@@ -59,7 +60,7 @@ size = width, height = 700, 800
 def run():
     pygame.init()
     screen = pygame.display.set_mode((700, 800))
-    pygame.display.set_caption("Spase War")
+    pygame.display.set_caption("Spase Invaders")
     bg_color = (0, 0, 0)
     main = Main(screen)
     ammos = Group()
@@ -77,4 +78,4 @@ def run():
             moving.update_enemies(stats, screen, sc, main, enemies, ammos)
 
 
-start_screen()
+run()
